@@ -1,0 +1,71 @@
+<div style="background-color: #e9e9e9">
+    <div id="task_selectoin_div" style="background-color: #e9e9e9" >
+        <br/>
+        <br/>
+        <a class="btn" href="Javascript:void(0);" data-action="showcaseform">
+            >> Create a New Case!
+        </a>
+        <br/>
+        <a class="btn" href="Javascript:void(0);" data-action="gotoservicerequest">
+            >> Go to Service Request!
+        </a>
+        <br/>
+        <br/>
+    </div>
+
+    <div id="new_case_form_div" style="background-color: #e9e9e9; display: none">
+        <form id="new_case">
+
+            <legend>New Case</legend>
+            <div class="record-label" style="background-color: #e9e9e9">Subject: </div>
+            <div class="input-email" style="background-color: #e9e9e9">
+                <input type="text" id="new_case_name">
+            </div>
+
+            <div class="record-label" style="background-color: #e9e9e9">Description:</div>
+            <div class="input-email" style="background-color: #e9e9e9">
+                <textarea id="new_case_description"/>
+            </div>
+
+            <input type="hidden" id="the_account_id" value="{{{this.xaccount_id}}}">
+
+            <br/>
+            <div class="input-email" style="background-color: #e9e9e9">
+                <a class="btn" href="Javascript:void(0);" data-action="createcase">Create</a>&nbsp;&nbsp;&nbsp;
+                <a class="btn" href="Javascript:void(0);" data-action="goback">Go Back</a>
+                <br/>
+                <br/>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div id="result_case_div" style="display: none" class="block" style="background-color: #e9e9e9">
+        <legend>New Case Created.</legend><br/>
+
+        <label>Name:</label>
+        <a id="created_case_link" href="">
+            <div id="created_case_name">
+            </div>
+        </a>
+        <label>Description:</label>
+        <div id="created_case_description"></div>
+        <br/>
+        <br/>
+    </div>
+
+    <!-- Not displayed -->
+    <div id="existing_cases_div" style="visibility: hidden; display: none;">
+        <p>
+        <h4>There are {{{this.xnum_of_cases}}} existing cases.</h4>
+        <hr/>
+        <ul class="Cases">
+            {{#each this.xcases.models}}
+                <li>{{{this.attributes.name}}}</li>
+            {{/each}}
+        </ul>
+        </p>
+    </div>
+</div>
+
